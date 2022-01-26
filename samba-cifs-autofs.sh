@@ -56,6 +56,7 @@ sudo chown root:root $autofsDir/credentials/$ip-$folder.txt
 sudo chmod 600 $autofsDir/credentials/$ip-$folder.txt
 
 sudo systemctl restart autofs.service 
+sudo systemctl enable autofs.service
 
 # Limpeza de variaveis
 unset ip user pass folder domain autofsDir verificaTexto
