@@ -32,7 +32,7 @@ escreveTextoSeNaoExistir(){
 }
 
 # Escreve em auto.master caminho da montagem
-escreveTextoSeNaoExistir '/mnt/samba/ $autofsDir/auto.samba --timeout 60 --browse' '$autofsDir/auto.master'
+escreveTextoSeNaoExistir "/mnt/samba/ $autofsDir/auto.samba --timeout 60 --browse" "$autofsDir/auto.master"
 
 # Cria pasta de credenciais se não existir, e permite somente root
 if ! [ -e "$autofsDir/credentials/" ]; then
@@ -42,7 +42,7 @@ if ! [ -e "$autofsDir/credentials/" ]; then
 fi
 
 # Monta samba
-escreveTextoSeNaoExistir "$ip-$folder -fstype=cifs,credentials=$autofsDir/credentials/$ip-$folder.txt,noperm,nounix,file_mode=0777,dir_mode=0777 ://$ip/$folder" '$autofsDir/auto.samba'
+escreveTextoSeNaoExistir "$ip-$folder -fstype=cifs,credentials=$autofsDir/credentials/$ip-$folder.txt,noperm,nounix,file_mode=0777,dir_mode=0777 ://$ip/$folder" "$autofsDir/auto.samba"
 
 # Salva as credenciais
 if [ "$domain" == "" ];then
@@ -54,6 +54,8 @@ fi
 # Tirar permissão para usuáios não root lerem arquivo de credenciais
 sudo chown root:root $autofsDir/credentials/$ip-$folder.txt
 sudo chmod 600 $autofsDir/credentials/$ip-$folder.txt
+
+sudo systemctl restart autofs.service 
 
 # Limpeza de variaveis
 unset ip user pass folder domain autofsDir verificaTexto
