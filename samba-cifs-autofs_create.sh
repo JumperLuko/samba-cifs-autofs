@@ -2,23 +2,28 @@
 # Script by JumperLuko jumperluko.github.io
 # https://wiki.archlinux.org/title/Autofs
 
-echo -e "\n=== Mapping Samba server ===\n"
-read -p "IP: " ip
-read -p "User: " user
-read -s -p "Password: " pass
-echo ""
-read -p "Folder [default=Servidor] " folder
-read -p "workgroup: (empty for without) [common=workgroup]" domain
-
-if [ "$folder" == "" ];then
-    folder=Servidor
-fi
-
 # Set directory if it exists
 if [ -e "/etc/autofs/" ]; then
     autofsDir="/etc/autofs"
 elif [ -e "/etc/auto.master" ]; then
     autofsDir="/etc"
+else
+    echo "Directory not found, stoping!"
+    sleep 5
+    exit
+fi
+
+echo -e "\n=== Mapping Samba server ===\n"
+read -p "IP: " ip
+read -p "User: " user
+read -s -p "Password: " pass
+echo ""
+read -p "workgroup: (empty for without) [common=workgroup]" domain
+read -p "Folder [default=Servidor] " folder
+
+# Default folder
+if [ "$folder" == "" ];then
+    folder=Servidor
 fi
 
 # Only write if there is no path text, $1 is text, $2 is path
