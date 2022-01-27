@@ -63,8 +63,14 @@ fi
 sudo chown root:root $autofsDir/credentials/$ip-$folder.txt
 sudo chmod 600 $autofsDir/credentials/$ip-$folder.txt
 
+# Restart and start on boot
 sudo systemctl restart autofs.service 
 sudo systemctl enable autofs.service
+
+# Show location and create link
+echo -e "\nCreated on /mnt/samba/$ip-$folder"
+ln -s /mnt/samba/$ip-$folder $HOME
+echo "ln -s /mnt/samba/$ip-$folder $(pwd)"
 
 # Cleaning variables
 unset ip user pass folder domain autofsDir checkText
