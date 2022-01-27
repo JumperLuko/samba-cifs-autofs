@@ -2,6 +2,8 @@
 # Script by JumperLuko jumperluko.github.io
 # https://wiki.archlinux.org/title/Autofs
 
+# WARNING: Your credentials will not be encrypted! They will be saved to be accessible only by root. Any solution will be welcome
+
 # Set directory if it exists
 if [ -e "/etc/autofs/" ]; then
     autofsDir="/etc/autofs"
