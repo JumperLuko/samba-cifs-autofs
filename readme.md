@@ -7,6 +7,7 @@ Make it easier to create samba mounts in this highly performance way
 ### Install `autofs` package
 
 Ubuntu: `sudo apt install autofs`
+
 Arch: `yay -S autofs`
 
 ### Make executable and Run `samba-cifs-autofs.sh`
