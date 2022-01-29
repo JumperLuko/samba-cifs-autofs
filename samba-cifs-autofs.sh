@@ -1,4 +1,6 @@
 #!/bin/bash
+# Script by JumperLuko jumperluko.github.io
+# https://wiki.archlinux.org/title/Autofs
 
 echo -e "\e[34m1\e[0m - Create a samba mount"
 echo -e "\e[34m2\e[0m - Edit a samba mount"

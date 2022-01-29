@@ -1,4 +1,6 @@
 #!/bin/bash
+# Script by JumperLuko jumperluko.github.io
+# https://wiki.archlinux.org/title/Autofs
 
 # Set directory if it exists
 if [ -e "/etc/autofs/" ]; then
