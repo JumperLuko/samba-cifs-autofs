@@ -16,7 +16,15 @@ else
 fi
 
 echo -e "\n=== Mapping Samba server ===\n"
+
+# Type things
 read -p "IP: " ip
+# Function loop, if is blank
+while true; do
+    if [ "$ip" != "" ]; then break; fi
+    read -p "Type an IP: " ip
+done
+
 read -p "User: " user
 read -s -p "Password: " pass
 echo ""
