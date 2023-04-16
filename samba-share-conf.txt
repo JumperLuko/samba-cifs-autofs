@@ -1,0 +1,9 @@
+[share]
+        comment = My Share
+        path = /home/jane/share
+        writeable = yes
+        browseable = yes
+        public = yes
+        create mask = 0644
+        directory mask = 0755
+        write list = user
